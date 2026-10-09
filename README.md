@@ -7,6 +7,13 @@ with **Reciprocal Rank Fusion**, the retrieval setup behind most good RAG.
 
 ![demo](assets/demo.gif)
 
+The demo (`scripts/demo.py`) runs offline on five short support-FAQ snippets
+(returns, refunds, shipping) and the query *"free returns refund"*. It prints the
+keyword-only ranking, the vector-only ranking, and the Reciprocal Rank Fusion of
+the two side by side, so you can see a document that ranks well in both rise to
+the top without any score calibration between the retrievers. Set
+`HS_EMBEDDER=sentence-transformers` for real semantic matches.
+
 ## Why hybrid
 
 - **Keyword** search nails exact terms: product codes, names, error strings,
