@@ -14,7 +14,10 @@ real Okapi BM25 (`rank-bm25`); the vector half uses OpenAI embeddings when
 BM25 ranking, the vector ranking, and the Reciprocal Rank Fusion of the two side
 by side, so you can see a document that ranks well in both rise to the top, and
 `d2` ("send items back at no extra cost"), which shares no query terms, still
-surface through the vector retriever.
+surface through the vector retriever. Finally it closes the loop end to end: it
+feeds the fused top-k to the model as context and generates a grounded answer to
+a question (when `OPENAI_API_KEY` is set), which is how hybrid retrieval plugs
+into RAG.
 
 ## Why hybrid
 
