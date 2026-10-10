@@ -26,9 +26,10 @@ def _hs():
     return hs
 
 
-def test_keyword_is_exact_overlap():
+def test_keyword_bm25_ranks_by_term_match():
     kws = dict(_hs().index.keyword_search("refund"))
-    assert "d4" in kws and "d5" not in kws
+    assert "d4" in kws and "d3" in kws   # both mention "refund"
+    assert "d5" not in kws               # shipping doc shares no terms
 
 
 def test_hybrid_top_found_by_both():
